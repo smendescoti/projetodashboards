@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.5.0" />
+    <PackageReference Include="itext7" Version="7.1.13" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Projeto.Application\ProjetoDashboards.Application.csproj" />
+    <ProjectReference Include="..\ProjetoDashboards.Domain\ProjetoDashboards.Domain.csproj" />
+    <ProjectReference Include="..\ProjetoDashboards.Infra.Data\ProjetoDashboards.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

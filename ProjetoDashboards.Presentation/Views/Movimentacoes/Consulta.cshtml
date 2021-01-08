@@ -1,0 +1,121 @@
+﻿@model ProjetoDashboards.Application.Models.MovimentacoesConsultaModel
+
+@{
+    ViewData["Title"] = "Consulta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5>Consulta de Movimentações financeiras</h5>
+<p>Informe o período de datas desejado:</p>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-3">
+
+            @Html.TextBoxFor(model => model.DataInicio,
+                new { @class = "form-control", @type = "date" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.DataInicio)
+            </span>
+
+        </div>
+        <div class="col-md-3">
+
+            @Html.TextBoxFor(model => model.DataTermino,
+                new { @class = "form-control", @type = "date" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.DataTermino)
+            </span>
+
+        </div>
+        <div class="col-md-6">
+            <input type="submit" value="Pesquisar Movimentações"
+                   class="btn btn-success" />
+        </div>
+    </div>
+}
+
+@using ProjetoDashboards.Application.Models
+@if (TempData["Resultado"] != null)
+{
+    var lista = TempData["Resultado"] as List<MovimentacoesResultadoModel>;
+
+    <div class="row mt-2">
+        <div class="col-md-10 text-end">
+            Total de Receitas
+        </div>
+        <div class="col-md-2">
+            <strong class="text-success">
+                @lista.Where(item => item.TipoMovimentacao == "Receita").Sum(item => item.ValorMovimentacao).ToString("c")
+            </strong>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-10 text-end">
+            Total de Despesas
+        </div>
+        <div class="col-md-2">
+            <strong class="text-danger">
+                @lista.Where(item => item.TipoMovimentacao == "Despesa").Sum(item => item.ValorMovimentacao).ToString("c")
+            </strong>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+
+            <table class="table table-hover table-light table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome da Movimentação</th>
+                        <th>Data</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th width="160">Operações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in lista)
+                    {
+                        <tr>
+                            <td>@item.NomeMovimentacao</td>
+                            <td>@item.DataMovimentacao.ToString("dd/MM/yyyy")</td>
+                            <td>@item.ValorMovimentacao.ToString("c")</td>
+                            <td>
+                                @if (item.TipoMovimentacao.Equals("Receita"))
+                                {
+                                    <h6 class="badge bg-success">RECEITA</h6>
+                                }
+                                else
+                                {
+                                    <h6 class="badge bg-danger">DESPESA</h6>
+                                }
+                            </td>
+                            <td>
+                                <a href="/Movimentacoes/Edicao?id=@item.IdMovimentacao"
+                                   class="btn btn-primary btn-sm">
+                                    Editar
+                                </a>
+                                <a href="/Movimentacoes/Excluir?id=@item.IdMovimentacao"
+                                   onclick="return confirm('Deseja realmente excluir este registro?');"
+                                   class="btn btn-danger btn-sm">
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            Quantidade de movimentações: @lista.Count()
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+}

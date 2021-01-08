@@ -1,0 +1,15 @@
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.deps.json
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.runtimeconfig.json
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.runtimeconfig.dev.json
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.dll
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.pdb
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Domain.dll
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\bin\Release\netcoreapp3.1\ProjetoDashboards.Domain.pdb
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.csprojAssemblyReference.cache
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.AssemblyInfo.cs
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.csproj.CopyComplete
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.dll
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.pdb
+C:\Users\sergi\OneDrive\Área de Trabalho\Aulas EAD\C# .NET - SQS Noite 03\Aula 39 - 18.12.2020\ProjetoDashboards\ProjetoDashboards.Infra.Data\obj\Release\netcoreapp3.1\ProjetoDashboards.Infra.Data.genruntimeconfig.cache

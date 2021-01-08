@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5>Sistema de controle de movimentações financeiras</h5>
+<p>Seja bem vindo ao projeto!</p>
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+
+        <label>Data de Início:</label>
+        <input type="date" id="dataMin" class="form-control"/>
+        <br/>
+
+        <label>Data de Término:</label>
+        <input type="date" id="dataMax" class="form-control"/>
+        <br/>
+
+        <button id="btnFiltro" class="btn btn-success">
+            Filtrar Resultados
+        </button>
+
+    </div>
+    <div class="col-md-9">
+        <div id="grafico"></div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script>
+
+        //iniciando o jquery..
+        $(document).ready(function () {
+
+            //obtendo o primeiro e o ultimo dia do mes atual..
+            var date = new Date();
+            var dataMin = new Date(date.getFullYear(), date.getMonth(), 1);
+            var dataMax = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+            //setar as datas nos campos
+            $("#dataMin").val(formatDate(dataMin));
+            $("#dataMax").val(formatDate(dataMax));
+
+            //gerando o gráfico assim que a página for carregada..
+            gerarGrafico();
+
+            //evento para clicar no botão..
+            $("#btnFiltro").click(function () {
+                gerarGrafico();
+            })
+        });
+
+        //função para gerar o gráfico..
+        function gerarGrafico() {
+
+            //Requisição AJAX para o controller..
+            $.ajax({
+                type: "POST",
+                url: "/Movimentacoes/ObterMovimentacoes",
+                data: {
+                    DataInicio: $("#dataMin").val(),
+                    DataTermino: $("#dataMax").val()
+                },
+                success: function (result) {
+
+                    var array = [];
+
+                    array.push([
+                        result.totalReceitas.name, result.totalReceitas.data[0]
+                    ]);
+
+                    array.push([
+                        result.totalDespesas.name, result.totalDespesas.data[0]
+                    ]);
+
+                    new Highcharts.Chart({
+                        chart: {
+                            type: 'pie',
+                            renderTo: 'grafico'
+                        },
+                        title: {
+                            verticalAlign: 'middle',
+                            floating: true,
+                            text: 'Movimentações<br/>Financeiras<br/><br/>'
+                                + $("#dataMin").val() + '<br/>'
+                                + $("#dataMax").val()
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: '75%',
+                                dataLabels: {
+                                    enable: true
+                                },
+                                showInLegend: true
+                            }
+                        },
+                        credits: {
+                            enabled : false
+                        },
+                        series: [{
+                            data : array
+                        }],
+                        colors : ['#5cb85c', '#d9534f']
+                    });
+
+                }
+            });
+
+        }
+
+        //função para formatar as data no padrão do campo type='date'
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+    </script>
+
+}

@@ -1,0 +1,57 @@
+﻿@model ProjetoDashboards.Application.Models.MovimentacoesEdicaoModel
+
+@{
+    ViewData["Title"] = "Edicao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5>Edição de Movimentações financeiras</h5>
+<p>Modifique os dados abaixo:</p>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+
+            <!-- campo oculto -->
+            @Html.HiddenFor(model => model.IdMovimentacao)
+
+            <label>Nome da Movimentação</label>
+            @Html.TextBoxFor(model => model.NomeMovimentacao,
+                new { @class = "form-control", @placeholder = "Digite aqui" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.NomeMovimentacao)
+            </span>
+            <br />
+
+            <label>Data da Movimentação</label>
+            @Html.TextBoxFor(model => model.DataMovimentacao,
+                new { @class = "form-control", @type = "date" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.DataMovimentacao)
+            </span>
+            <br />
+
+            <label>Valor da Movimentação</label>
+            @Html.TextBoxFor(model => model.ValorMovimentacao,
+                new { @class = "form-control", @placeholder = "0.00" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.ValorMovimentacao)
+            </span>
+            <br />
+
+            <label>Tipo da Movimentação</label> <br />
+            @Html.RadioButtonFor(model => model.TipoMovimentacao, "1") <span>Receita</span> <br />
+            @Html.RadioButtonFor(model => model.TipoMovimentacao, "2") <span>Despesa</span> <br />
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.TipoMovimentacao)
+            </span>
+            <br />
+
+            <input type="submit" value="Atualizar Dados"
+                   class="btn btn-primary" />
+
+        </div>
+    </div>
+}
+
